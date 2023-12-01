@@ -34,15 +34,24 @@ public class ContactService {
      }
     }
 
-    public Contact findById(Integer id){
-        Contact contact1=contactDAO.findById(id).orElseThrow(() -> new RuntimeException("Contact Not Found"));
+    public Optional<Contact> findById(Integer id){
+        Optional<Contact> contact1=contactDAO.findById(id);
+        if(contact1.isPresent()){
         return contact1;
+        }
+        else {
+            return null;
+        }
     }
 
 
     public Contact findByNom(String nom){
         Contact contact =contactDAO.findByNom(nom);
-        return contact;
+        if (contact!=null){
+        return contact;}
+        else {
+            return null;
+        }
     }
 
 

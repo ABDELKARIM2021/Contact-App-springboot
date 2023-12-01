@@ -22,4 +22,6 @@ public class Contact implements Serializable {
     private String nom;
 
     private String prenom;
+    private String telephone;
+    private String image;
 }

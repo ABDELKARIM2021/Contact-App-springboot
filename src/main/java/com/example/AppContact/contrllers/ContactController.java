@@ -1,11 +1,12 @@
 package com.example.AppContact.contrllers;
-²
+
 import com.example.AppContact.Service.ContactService;
 import com.example.AppContact.module.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/contact")
@@ -38,13 +39,14 @@ public class ContactController {
 
 
     @GetMapping("/{id}")
-    public Contact  findById(@PathVariable Integer id){
+    public Optional<Contact> findById(@PathVariable Integer id){
         return contactService.findById(id);
 
     }
 
     @GetMapping("/nom/{nom}")
     public  Contact findByNom(@PathVariable String nom){
+        
         return contactService.findByNom(nom);
     }
 }
